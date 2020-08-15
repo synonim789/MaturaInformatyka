@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 public class API {
 
     // Printer, który można wsadzić do .forEach() lub .peek()
-    public static final Consumer<Object> PRINTER = o -> System.out.println(o.toString());
+    public static final Consumer<Object> PRINTER = o -> System.out.println(o.toString().replace("\n", ""));
 
     // Wczytuje plik, zwraca listę linii
     public static List<String> read(String path) {
