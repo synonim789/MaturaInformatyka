@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Zadanie41 {
 
     public static void main(String[] args) {
-        List<Para> pary = API.mapFile("Dane_PR2/pary.txt", Para::new);
+        List<Para> pary = API.mapFile("2020/Dane_PR2/pary.txt", Para::new);
         //pary.forEach(API.PRINTER);
         API.write("2020_zadanie41.txt", writer -> {
             pary.stream()
