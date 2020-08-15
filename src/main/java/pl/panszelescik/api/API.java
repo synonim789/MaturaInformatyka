@@ -106,7 +106,6 @@ public class API {
         for (char c : word.toCharArray()) {
             map.merge(c, 1, Integer::sum);
         }
-        System.out.println(map);
         return map;
     }
 
