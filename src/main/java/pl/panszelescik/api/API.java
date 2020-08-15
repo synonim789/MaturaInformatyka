@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class API {
 
@@ -99,8 +100,38 @@ public class API {
         return list.stream().mapToInt(Integer::intValue);
     }
 
+    // Zlicza znaki w podanym słowie, zwraca w postaci Mapy
+    public static Map<Character, Integer> wordToMap(String word) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : word.toCharArray()) {
+            map.merge(c, 1, Integer::sum);
+        }
+        System.out.println(map);
+        return map;
+    }
+
+    // Powtarza ciąg znaków o podaną ilość razy
+    public static String repeat(String repeat, int amount) {
+        StringBuilder string = new StringBuilder();
+        for (int i = 0; i < amount; i++) {
+            string.append(repeat);
+        }
+        return string.toString();
+    }
+
     // UWAGA!!!
     // Zapisywanie na maturze nie jest potrzebne
+
+    // Wyświetla na consoli i zapisuje do pliku
+    public static void endStream(MyWriter writer, Stream<?> stream) {
+        stream.peek(PRINTER)
+                .forEach(writer::write);
+    }
+
+    // Wyświetla na consoli i zapisuje do pliku
+    public static void writeStream(String fileName, Stream<?> stream) {
+        write(fileName, writer -> endStream(writer, stream));
+    }
 
     // Po otwarciu pliku, można do niego wpisać cokolwiek używając Consumera
     public static void write(String fileName, Consumer<MyWriter> onOpen) {
