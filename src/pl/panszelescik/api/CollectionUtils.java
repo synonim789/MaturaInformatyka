@@ -23,13 +23,13 @@ public class CollectionUtils {
                 .get();
     }
 
-    // Dodaje do kolekcji i ją zwraca, kompatybilne z listami i setami
+    // Dodaje do kolekcji i ja zwraca, kompatybilne z listami i setami
     public static <C extends Collection<E>, E> C add(C collection, E value) {
         collection.add(value);
         return collection;
     }
 
-    // Collector zliczający ilość T w Streamie i mapuje do Map<K, Integer>
+    // Collector zliczajacy ilosc T w Streamie i mapuje do Map<K, Integer>
     public static <T, K> Collector<T, ?, Map<K, Integer>> toCountMap(Function<? super T, ? extends K> keyMapper) {
         return toSumMap(keyMapper, u -> 1);
     }

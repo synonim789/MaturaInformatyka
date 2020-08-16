@@ -15,12 +15,12 @@ import java.util.stream.Stream;
 
 public class FileUtils {
 
-    // Wczytuje plik, zwraca listę linii
+    // Wczytuje plik, zwraca liste linii
     public static List<String> read(String path) {
         return read(path, 0);
     }
 
-    // Wczytuje plik, zwraca listę linii, skip pozwala na pominięcie np. pierwszej linii
+    // Wczytuje plik, zwraca liste linii, skip pozwala na pominiecie np. pierwszej linii
     public static List<String> read(String path, int skip) {
         InputStream inputStream = Printers.class.getClassLoader().getResourceAsStream(path);
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -33,12 +33,12 @@ public class FileUtils {
         return new ArrayList<>();
     }
 
-    // Mapuje plik we wskazany sposób
+    // Mapuje plik we wskazany sposob
     public static <R> List<R> mapFile(String fileName, Function<String, ? extends R> mapper) {
         return mapFile(fileName, mapper, 0);
     }
 
-    // Mapuje plik we wskazany sposób
+    // Mapuje plik we wskazany sposob
     public static <R> List<R> mapFile(String fileName, Function<String, ? extends R> mapper, int skip) {
         return read(fileName, skip).stream()
                 .map(mapper)
@@ -48,18 +48,18 @@ public class FileUtils {
     // UWAGA!!!
     // Zapisywanie na maturze nie jest potrzebne
 
-    // Wyświetla na consoli i zapisuje do pliku
+    // Wyswietla na consoli i zapisuje do pliku
     public static void endStream(MyWriter writer, Stream<?> stream) {
         stream.peek(Printers.CONSUMER)
                 .forEach(writer::writeLine);
     }
 
-    // Wyświetla na consoli i zapisuje do pliku
+    // Wyswietla na consoli i zapisuje do pliku
     public static void writeStream(String dir, String fileName, Stream<?> stream) {
         write(dir, fileName, writer -> endStream(writer, stream));
     }
 
-    // Po otwarciu pliku, można do niego wpisać cokolwiek używając Consumera
+    // Po otwarciu pliku, mozna do niego wpisac cokolwiek używajac Consumera
     public static void write(String dir, String fileName, Consumer<MyWriter> onOpen) {
         try {
             Files.createDirectories(Paths.get(dir));
@@ -73,7 +73,7 @@ public class FileUtils {
         }
     }
 
-    // Klasa wewnętrzna, by nie pisać ciągle try/catch
+    // Klasa wewnetrzna, by nie pisac ciagle try/catch
     public static class MyWriter {
 
         public final Writer writer;

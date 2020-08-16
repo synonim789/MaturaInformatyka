@@ -13,7 +13,7 @@ public class StringUtils {
         return map;
     }
 
-    // Zlicza ciągi znaków
+    // Zlicza ciagi znakow
     public static List<Pair<Character, Integer>> subString(String input) {
         char[] chars = input.toCharArray();
         Pair<Character, Integer> pair = null;
@@ -35,7 +35,7 @@ public class StringUtils {
         return pairs;
     }
 
-    // Powtarza ciąg znaków o podaną ilość razy
+    // Powtarza ciag znakow o podaną ilosc razy
     public static String repeat(String repeat, int amount) {
         StringBuilder string = new StringBuilder();
         for (int i = 0; i < amount; i++) {

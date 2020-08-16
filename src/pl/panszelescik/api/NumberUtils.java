@@ -68,12 +68,12 @@ public class NumberUtils {
         return String.valueOf(number);
     }
 
-    // Przelicza sumę wszystkich wartości z listy
+    // Przelicza sume wszystkich wartosci z listy
     public static int sumIntList(Collection<Integer> list) {
         return CollectionUtils.createIntStream(list).sum();
     }
 
-    // Zwraca największy int z listy
+    // Zwraca najwiekszy int z listy
     public static int getMax(Collection<Integer> list) {
         return CollectionUtils.createIntStream(list).max().getAsInt();
     }
