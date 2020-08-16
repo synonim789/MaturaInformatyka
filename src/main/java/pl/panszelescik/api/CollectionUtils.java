@@ -29,7 +29,13 @@ public class CollectionUtils {
         return collection;
     }
 
+    // Collector zliczający ilość T w Streamie i mapuje do Map<K, Integer>
     public static <T, K> Collector<T, ?, Map<K, Integer>> toCountMap(Function<? super T, ? extends K> keyMapper) {
-        return Collectors.toMap(keyMapper, u -> 1, Integer::sum);
+        return toSumMap(keyMapper, u -> 1);
+    }
+
+    // Collector zliczajacy wartosci z T w Streamie i mapuje do Map<K, Integer>
+    public static <T, K> Collector<T, ?, Map<K, Integer>> toSumMap(Function<? super T, ? extends K> keyMapper, Function<? super T, Integer> valueMapper) {
+        return Collectors.toMap(keyMapper, valueMapper, Integer::sum);
     }
 }
