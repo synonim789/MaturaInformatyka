@@ -19,27 +19,30 @@ public class API {
 
     // Wczytuje plik, zwraca listę linii
     public static List<String> read(String path) {
+        return read(path, 0);
+    }
+
+    // Wczytuje plik, zwraca listę linii, skip pozwala na pominięcie np. pierwszej linii
+    public static List<String> read(String path, int skip) {
         InputStream inputStream = API.class.getClassLoader().getResourceAsStream(path);
-        List<String> lines = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                lines.add(line);
-            }
+            return br.lines()
+                    .skip(skip)
+                    .collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return lines;
+        return new ArrayList<>();
     }
 
     // Mapuje plik we wskazany sposób
     public static <R> List<R> mapFile(String fileName, Function<String, ? extends R> mapper) {
-        return mapLines(read(fileName), mapper);
+        return mapFile(fileName, mapper, 0);
     }
 
-    // Mapuje linie we wskazany sposób
-    public static <R> List<R> mapLines(List<String> lines, Function<String, ? extends R> mapper) {
-        return lines.stream()
+    // Mapuje plik we wskazany sposób
+    public static <R> List<R> mapFile(String fileName, Function<String, ? extends R> mapper, int skip) {
+        return read(fileName, skip).stream()
                 .map(mapper)
                 .collect(Collectors.toList());
     }

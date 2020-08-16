@@ -10,4 +10,12 @@ public class Jezyk {
         this.nazwa = array[0];
         this.rodzina = array[1];
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "nazwa='" + nazwa + '\'' +
+                ", rodzina='" + rodzina + '\'' +
+                '}';
+    }
 }

@@ -11,7 +11,17 @@ public class Uzytkownik {
         String[] array = line.split("\t");
         this.panstwo = array[0];
         this.jezyk = array[1];
-        this.ilosc = Double.parseDouble(array[2]);
-        this.urzedowy = array[3].equalsIgnoreCase("tak") ? true : false;
+        this.ilosc = Double.parseDouble(array[2].replace(",", "."));
+        this.urzedowy = array[3].equalsIgnoreCase("tak");
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "panstwo='" + panstwo + '\'' +
+                ", jezyk='" + jezyk + '\'' +
+                ", ilosc=" + ilosc +
+                ", urzedowy=" + urzedowy +
+                '}';
     }
 }

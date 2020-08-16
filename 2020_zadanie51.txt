@@ -6,20 +6,19 @@ nilo-saharyjska 30
 afroazjatycka 28
 dajska 23
 austroazjatycka 20
-drawidyjska 15
 turecka 15
+drawidyjska 15
 jezyk izolowany 8
-polnocno-wschodniokaukaska 7
 otomang 7
-mongolska 5
+polnocno-wschodniokaukaska 7
 majanska 5
+mongolska 5
 hmong-mien 4
 abchasko-adygijska 3
 uralska 3
+tungusko-mandzurska 1
 algijska 1
 keczua 1
 tupi 1
 na-dene 1
-tungusko-mandzurska 1
-Rodzina 1
 uto-aztecka 1

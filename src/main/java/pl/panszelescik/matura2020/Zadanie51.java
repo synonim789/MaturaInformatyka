@@ -8,7 +8,7 @@ import java.util.*;
 public class Zadanie51 {
 
     public static void main(String[] args) {
-        List<Jezyk> jezyki = API.mapFile("2020/Dane_PR2/jezyki.txt", Jezyk::new);
+        List<Jezyk> jezyki = API.mapFile("2020/Dane_PR2/jezyki.txt", Jezyk::new, 1);
         Map<String, Integer> map = new HashMap<>();
         jezyki.stream()
                 .map(jezyk -> jezyk.rodzina)
