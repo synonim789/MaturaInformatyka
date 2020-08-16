@@ -9,7 +9,7 @@ public class Para {
 
     public Para(String line) {
         String[] array = line.split(" ");
-        this.number = API.parse(array[0]);
+        this.number = API.parseInt(array[0]);
         this.string = array[1];
     }
 

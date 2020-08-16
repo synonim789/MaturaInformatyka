@@ -6,9 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -16,7 +14,7 @@ import java.util.stream.Stream;
 public class API {
 
     // Printer, który można wsadzić do .forEach() lub .peek()
-    public static final Consumer<Object> PRINTER = o -> System.out.println(o.toString().replace("\n", ""));
+    public static final Consumer<Object> PRINTER = o -> System.out.println(o.toString());
     public static final BiConsumer<Object, Object> PRINTER2 = (o, o2) -> System.out.println(o + " " + o2);
 
     // Wczytuje plik, zwraca listę linii
@@ -49,9 +47,14 @@ public class API {
                 .collect(Collectors.toList());
     }
 
-    // Parsuje inta
-    public static int parse(String string) {
+    // Parsuje int
+    public static int parseInt(String string) {
         return Integer.parseInt(string);
+    }
+
+    // Parsuje double
+    public static double parseDouble(String string) {
+        return Double.parseDouble(string);
     }
 
     // Sprawdza czy podana liczba jest parzysta
@@ -121,6 +124,20 @@ public class API {
             string.append(repeat);
         }
         return string.toString();
+    }
+
+    // Zwraca pierwszy zgodny obiekt z listy
+    public static <T> T getFromList(Collection<T> list, Predicate<? super T> predicate) {
+        return list.stream()
+                .filter(predicate)
+                .findFirst()
+                .get();
+    }
+
+    // Dodaje do kolekcji i ją zwraca, kompatybilne z listami i setami
+    public static <C extends Collection<E>, E> C add(C collection, E value) {
+        collection.add(value);
+        return collection;
     }
 
     // UWAGA!!!

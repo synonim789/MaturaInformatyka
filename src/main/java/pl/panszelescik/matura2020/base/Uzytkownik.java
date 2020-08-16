@@ -1,5 +1,7 @@
 package pl.panszelescik.matura2020.base;
 
+import pl.panszelescik.api.API;
+
 import java.math.BigDecimal;
 
 public class Uzytkownik {
@@ -15,8 +17,8 @@ public class Uzytkownik {
         this.nazwaPanstwa = array[0];
         this.nazwaJezyka = array[1];
         this.iloscString = array[2].replace(",", ".");
-        this.ilosc = Double.parseDouble(this.iloscString);
-        this.urzedowy = array[3].equalsIgnoreCase("tak");
+        this.ilosc = API.parseDouble(this.iloscString);
+        this.urzedowy = array[3].equals("tak");
     }
 
     public BigDecimal getAsBigDecimal() {

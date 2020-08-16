@@ -11,7 +11,6 @@ public class Zadanie41 {
 
     public static void main(String[] args) {
         List<Para> pary = API.mapFile("2020/Dane_PR2/pary.txt", Para::new);
-        //pary.forEach(API.PRINTER);
         API.writeStream("2020_zadanie41.txt", pary.stream()
                 .filter(para -> API.isEven(para.number))
                 .map(para -> API.primeToEvenNumbers(para.number))

@@ -15,10 +15,10 @@ public class Zadanie53 {
         List<Uzytkownik53> uzytkownicy = API.mapFile("2020/Dane_PR2/uzytkownicy.txt", line -> new Uzytkownik53(line, panstwa, jezyki), 1);
         Map<String, Set<String>> valid = new HashMap<>();
 
-        uzytkownicy.forEach(uzytkownik -> valid.merge(uzytkownik.jezyk.nazwa, new HashSet<>(Collections.singletonList(uzytkownik.panstwo.kontynent)), (set, unneeded) -> {
-            set.add(uzytkownik.panstwo.kontynent);
-            return set;
-        }));
+        uzytkownicy.forEach(uzytkownik -> {
+            valid.putIfAbsent(uzytkownik.jezyk.nazwa, new HashSet<>());
+            valid.computeIfPresent(uzytkownik.jezyk.nazwa, (key, set) -> API.add(set, uzytkownik.panstwo.kontynent));
+        });
 
         API.writeStream("2020_zadanie53.txt", valid.entrySet()
                 .stream()
@@ -27,16 +27,10 @@ public class Zadanie53 {
     }
 
     public static Jezyk getJezyk(List<Jezyk> jezyki, String name) {
-        return jezyki.stream()
-                .filter(jezyk -> jezyk.nazwa.equals(name))
-                .findFirst()
-                .get();
+        return API.getFromList(jezyki, jezyk -> jezyk.nazwa.equals(name));
     }
 
     public static Panstwo getPanstwo(List<Panstwo> panstwa, String name) {
-        return panstwa.stream()
-                .filter(panstwo -> panstwo.nazwa.equals(name))
-                .findFirst()
-                .get();
+        return API.getFromList(panstwa, panstwo -> panstwo.nazwa.equals(name));
     }
 }
