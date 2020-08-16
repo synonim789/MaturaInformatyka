@@ -57,17 +57,17 @@ public class NumberUtils {
     }
 
     // Przelicza sumę wszystkich wartości z listy
-    public static int sumIntList(java.util.Collection list) {
+    public static int sumIntList(Collection<Integer> list) {
         return CollectionUtils.createIntStream(list).sum();
     }
 
     // Zwraca największy int z listy
-    public static int getMax(java.util.Collection list) {
+    public static int getMax(Collection<Integer> list) {
         return CollectionUtils.createIntStream(list).max().getAsInt();
     }
 
     // Zwraca najmniejszy int z listy
-    public static int getMin(java.util.Collection list) {
+    public static int getMin(Collection<Integer> list) {
         return CollectionUtils.createIntStream(list).min().getAsInt();
     }
 
