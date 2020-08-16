@@ -24,7 +24,7 @@ public class Zadanie64 {
         Map<String, Integer> map = statki.stream()
                 .filter(statek -> statek.towar.equals("T5"))
                 .filter(statek -> statek.type.equals(type))
-                .filter(statek -> statek.date.isAfter(DateUtils.parse("2016-01-01", "yyyy-MM-dd")) && statek.date.isBefore(DateUtils.parse("2018-12-18", "yyyy-MM-dd")))
+                .filter(statek -> statek.date.isAfter(DateUtils.parse("2015-12-31", "yyyy-MM-dd")) && statek.date.isBefore(DateUtils.parse("2018-12-19", "yyyy-MM-dd"))) // Tutaj trzeba podać dzień wcześniej i dzień później
                 .sorted(Comparator.comparing(statek -> statek.date))
                 .collect(CollectionUtils.toSumMap(statek -> DateUtils.format(statek.date, "yyyy-MM"), statek -> statek.waga));
         for (int i = 2016; i < 2019; i++) {
