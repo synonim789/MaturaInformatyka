@@ -10,7 +10,7 @@ public class Zadanie51 {
 
     public static void main(String[] args) {
         List<Jezyk> jezyki = FileUtils.mapFile("2020/Dane_PR2/jezyki.txt", Jezyk::new, 1);
-        FileUtils.writeStream("2020_zadanie51.txt", jezyki.stream()
+        FileUtils.writeStream("rozwiazania/2020", "zadanie51.txt", jezyki.stream()
                 .collect(CollectionUtils.toCountMap(jezyk -> jezyk.rodzina))
                 .entrySet()
                 .stream()

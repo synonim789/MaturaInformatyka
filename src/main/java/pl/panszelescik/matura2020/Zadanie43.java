@@ -23,7 +23,7 @@ public class Zadanie43 {
                 .findFirst()
                 .ifPresent(para -> {
                     String string = para.number + " " + para.string;
-                    FileUtils.write("2020_zadanie43.txt", writer -> writer.write(string));
+                    FileUtils.write("rozwiazania/2020", "zadanie43.txt", writer -> writer.write(string));
                     System.out.println(string);
                 });
     }

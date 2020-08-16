@@ -12,7 +12,7 @@ public class Zadanie64 {
 
     public static void main(String[] args) {
         List<Statek> statki = FileUtils.mapFile("2020/Dane_PR2/statek.txt", Statek::new, 1);
-        FileUtils.write("2020_zadanie64.txt", writer -> {
+        FileUtils.write("rozwiazania/2020", "zadanie64.txt", writer -> {
             zaladunek(writer, statki);
             wyladunek(writer, statki);
         });

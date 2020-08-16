@@ -18,7 +18,7 @@ public class Zadanie65 {
             list.add(stanKonta);
         }
 
-        FileUtils.write("2020_zadanie65.txt", writer -> {
+        FileUtils.write("rozwiazania/2020", "zadanie65.txt", writer -> {
             int count = list.get(list.size() - 1).talary;
             writer.writeLine(count);
             writer.write("\n");

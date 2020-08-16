@@ -15,6 +15,6 @@ public class Zadanie52 {
                 .filter(uzytkownik -> uzytkownik.urzedowy)
                 .forEach(uzytkownik -> jezyki.removeIf(jezyk -> uzytkownik.nazwaJezyka.equals(jezyk.nazwa)));
         System.out.println(jezyki.size());
-        FileUtils.write("2020_zadanie52.txt", writer -> writer.write(jezyki.size()));
+        FileUtils.write("rozwiazania/2020", "zadanie52.txt", writer -> writer.write(jezyki.size()));
     }
 }

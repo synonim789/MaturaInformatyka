@@ -17,7 +17,7 @@ public class Zadanie54 {
         List<Jezyk> jezyki = FileUtils.mapFile("2020/Dane_PR2/jezyki.txt", Jezyk::new, 1);
         List<Uzytkownik54> uzytkownicy = FileUtils.mapFile("2020/Dane_PR2/uzytkownicy.txt", line -> new Uzytkownik54(line, panstwa, jezyki), 1);
 
-        FileUtils.writeStream("2020_zadanie54.txt", uzytkownicy.stream()
+        FileUtils.writeStream("rozwiazania/2020", "zadanie54.txt", uzytkownicy.stream()
                         .filter(uzytkownik -> (uzytkownik.panstwo.kontynent.equals("Ameryka Poludniowa") || uzytkownik.panstwo.kontynent.equals("Ameryka Polnocna")) && !uzytkownik.jezyk.rodzina.equals("indoeuropejska"))
                         .collect(Collectors.toMap(uzytkownik -> uzytkownik.jezyk, Uzytkownik::getAsBigDecimal, BigDecimal::add))
                         .entrySet()

@@ -21,7 +21,7 @@ public class Zadanie53 {
             valid.computeIfPresent(uzytkownik.jezyk.nazwa, (key, set) -> CollectionUtils.add(set, uzytkownik.panstwo.kontynent));
         });
 
-        FileUtils.writeStream("2020_zadanie53.txt", valid.entrySet()
+        FileUtils.writeStream("rozwiazania/2020", "zadanie53.txt", valid.entrySet()
                 .stream()
                 .filter(entry -> entry.getValue().size() >= 4)
                 .map(Map.Entry::getKey));

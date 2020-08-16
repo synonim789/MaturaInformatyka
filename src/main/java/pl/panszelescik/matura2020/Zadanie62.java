@@ -20,7 +20,7 @@ public class Zadanie62 {
         long count = list.stream()
                 .filter(num -> num > 20)
                 .count();
-        FileUtils.write("2020_zadanie62.txt", writer -> writer.write(count));
+        FileUtils.write("rozwiazania/2020", "zadanie62.txt", writer -> writer.write(count));
         System.out.println(count);
     }
 }

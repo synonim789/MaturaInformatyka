@@ -11,7 +11,7 @@ public class Zadanie42 {
 
     public static void main(String[] args) {
         List<Para> pary = FileUtils.mapFile("2020/Dane_PR2/pary.txt", Para::new);
-        FileUtils.writeStream("2020_zadanie42.txt", pary.stream()
+        FileUtils.writeStream("rozwiazania/2020", "zadanie42.txt", pary.stream()
                 .map(para -> StringUtils.subString(para.string))
                 .map(list -> list.stream()
                         .max(Comparator.comparing(pair -> pair.right))

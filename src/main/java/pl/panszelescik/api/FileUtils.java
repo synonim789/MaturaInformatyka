@@ -3,6 +3,7 @@ package pl.panszelescik.api;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
@@ -54,13 +55,18 @@ public class FileUtils {
     }
 
     // Wyświetla na consoli i zapisuje do pliku
-    public static void writeStream(String fileName, Stream<?> stream) {
-        write(fileName, writer -> endStream(writer, stream));
+    public static void writeStream(String dir, String fileName, Stream<?> stream) {
+        write(dir, fileName, writer -> endStream(writer, stream));
     }
 
     // Po otwarciu pliku, można do niego wpisać cokolwiek używając Consumera
-    public static void write(String fileName, Consumer<MyWriter> onOpen) {
-        try (Writer output = Files.newBufferedWriter(Paths.get(fileName), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+    public static void write(String dir, String fileName, Consumer<MyWriter> onOpen) {
+        try {
+            Files.createDirectories(Paths.get(dir));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (Writer output = Files.newBufferedWriter(Paths.get(dir, fileName), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
             onOpen.accept(new MyWriter(output));
         } catch (Exception e) {
             e.printStackTrace();

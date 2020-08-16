@@ -15,7 +15,7 @@ public class Zadanie63 {
         List<Statek> statki = FileUtils.mapFile("2020/Dane_PR2/statek.txt", Statek::new, 1);
         Magazyn magazyn1 = getMagazynForDate(statki, "2016-02-01", "yyyy-MM-dd");
         Magazyn magazyn2 = getMagazynForDate(statki, "2018-08-01", "yyyy-MM-dd");
-        FileUtils.write("2020_zadanie63.txt", writer -> {
+        FileUtils.write("rozwiazania/2020", "zadanie63.txt", writer -> {
             String string = String.join("\n", "2016-02-01", getMax(magazyn1), getMin(magazyn1), "\n2018-08-01", getMax(magazyn2), getMin(magazyn2));
             System.out.println(string);
             writer.write(string);

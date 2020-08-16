@@ -21,7 +21,7 @@ public class Zadanie61 {
                             .collect(CollectionUtils.toSumMap(statek -> statek.towar, statek -> statek.waga))
                             .get(entry.getKey());
                     String string = entry.getKey() + " " + lacznaMasa;
-                    FileUtils.write("2020_zadanie61.txt", writer -> writer.write(string));
+                    FileUtils.write("rozwiazania/2020", "zadanie61.txt", writer -> writer.write(string));
                     System.out.println(string);
                 });
     }

@@ -12,7 +12,7 @@ public class Zadanie41 {
 
     public static void main(String[] args) {
         List<Para> pary = FileUtils.mapFile("2020/Dane_PR2/pary.txt", Para::new);
-        FileUtils.writeStream("2020_zadanie41.txt", pary.stream()
+        FileUtils.writeStream("rozwiazania/2020", "zadanie41.txt", pary.stream()
                 .filter(para -> NumberUtils.isEven(para.number))
                 .map(para -> NumberUtils.primeToEvenNumbers(para.number))
                 .map(set -> set.stream()
