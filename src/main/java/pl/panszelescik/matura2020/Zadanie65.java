@@ -1,14 +1,11 @@
 package pl.panszelescik.matura2020;
 
 import pl.panszelescik.api.FileUtils;
-import pl.panszelescik.api.Printers;
 import pl.panszelescik.matura2020.base.StanKonta;
 import pl.panszelescik.matura2020.base.Statek;
 import pl.panszelescik.matura2020.base.Type;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Zadanie65 {
 
@@ -29,11 +26,21 @@ public class Zadanie65 {
 
             list.stream()
                     .filter(konto -> konto.statek.type.equals(Type.ZALADUNEK))
-                    .max(Comparator.comparingInt(konto -> konto.talary))
+                    .max(StanKonta::compareTo)
                     .ifPresent(konto -> {
                         String string = konto.statek.date + " " + konto.talary;
-                        writer.write(string);
+                        writer.writeLine(string);
+                        writer.write("\n");
                         System.out.println(string);
+                    });
+
+            list.stream()
+                    .mapToInt(konto -> konto.talary)
+                    .min()
+                    .ifPresent(num -> {
+                        int min = -num + 500_000;
+                        writer.writeLine(min);
+                        System.out.println(min);
                     });
         });
     }
