@@ -24,6 +24,10 @@ public class Statek {
         this.cena = NumberUtils.parseInt(array[5]);
     }
 
+    public int getCena() {
+        return waga * cena * (this.type.equals(Type.ZALADUNEK) ? -1 : 1);
+    }
+
     @Override
     public String toString() {
         return "{" +
