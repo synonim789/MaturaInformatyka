@@ -16,6 +16,6 @@ public class Zadanie51 {
         API.writeStream("2020_zadanie51.txt", map.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .map(entry -> entry.getKey() + " " + entry.getValue() + "\n"));
+                .map(entry -> entry.getKey() + " " + entry.getValue()));
     }
 }

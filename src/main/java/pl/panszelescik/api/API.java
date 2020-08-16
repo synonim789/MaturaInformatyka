@@ -127,7 +127,7 @@ public class API {
     // Wyświetla na consoli i zapisuje do pliku
     public static void endStream(MyWriter writer, Stream<?> stream) {
         stream.peek(PRINTER)
-                .forEach(writer::write);
+                .forEach(writer::writeStream);
     }
 
     // Wyświetla na consoli i zapisuje do pliku
@@ -159,6 +159,12 @@ public class API {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return this;
+        }
+
+        public MyWriter writeStream(Object o) {
+            this.write(o);
+            this.write("\n");
             return this;
         }
     }

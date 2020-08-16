@@ -21,6 +21,6 @@ public class Zadanie41 {
                 .peek(list -> list.add(0, API.sumIntList(list)))
                 .map(list -> list.stream()
                         .map(Object::toString)
-                        .collect(Collectors.joining(" ")) + "\n"));
+                        .collect(Collectors.joining(" "))));
     }
 }

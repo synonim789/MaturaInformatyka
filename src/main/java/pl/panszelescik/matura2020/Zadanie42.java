@@ -17,6 +17,6 @@ public class Zadanie42 {
                         .stream()
                         .max(Map.Entry.comparingByValue())
                         .get())
-                .map(entry -> API.repeat(entry.getKey().toString(), entry.getValue()) + " " + entry.getValue() + "\n"));
+                .map(entry -> API.repeat(entry.getKey().toString(), entry.getValue()) + " " + entry.getValue()));
     }
 }
