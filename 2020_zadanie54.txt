@@ -1,0 +1,6 @@
+mandarynski sino-tybetanska 3.1
+arabski afroazjatycka 2.7
+tagalog austronezyjska 1.9
+wietnamski austroazjatycka 1.5
+nahuatl uto-aztecka 1.4
+koreanski jezyk izolowany 1.2
