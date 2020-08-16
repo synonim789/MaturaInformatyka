@@ -1,8 +1,5 @@
 package pl.panszelescik.matura2020.base;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Panstwo {
 
     public final String nazwa;
