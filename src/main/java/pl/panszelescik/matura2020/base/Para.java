@@ -1,4 +1,4 @@
-package pl.panszelescik.matura2020;
+package pl.panszelescik.matura2020.base;
 
 import pl.panszelescik.api.API;
 

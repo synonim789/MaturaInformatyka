@@ -1,6 +1,7 @@
 package pl.panszelescik.matura2020;
 
 import pl.panszelescik.api.API;
+import pl.panszelescik.matura2020.base.Para;
 
 import java.util.List;
 import java.util.Map;
