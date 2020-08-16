@@ -5,7 +5,8 @@ import pl.panszelescik.matura2020.base.StanKonta;
 import pl.panszelescik.matura2020.base.Statek;
 import pl.panszelescik.matura2020.base.Type;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Zadanie65 {
 

@@ -3,7 +3,6 @@ package pl.panszelescik.api;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
@@ -59,7 +58,7 @@ public class FileUtils {
         write(dir, fileName, writer -> endStream(writer, stream));
     }
 
-    // Po otwarciu pliku, mozna do niego wpisac cokolwiek używajac Consumera
+    // Po otwarciu pliku, mozna do niego wpisac cokolwiek uzywajac Consumera
     public static void write(String dir, String fileName, Consumer<MyWriter> onOpen) {
         try {
             Files.createDirectories(Paths.get(dir));

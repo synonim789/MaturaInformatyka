@@ -1,6 +1,9 @@
 package pl.panszelescik.matura2020;
 
-import pl.panszelescik.api.*;
+import pl.panszelescik.api.CollectionUtils;
+import pl.panszelescik.api.DateUtils;
+import pl.panszelescik.api.FileUtils;
+import pl.panszelescik.api.NumberUtils;
 import pl.panszelescik.matura2020.base.Statek;
 import pl.panszelescik.matura2020.base.Type;
 
