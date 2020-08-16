@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -16,6 +17,7 @@ public class API {
 
     // Printer, który można wsadzić do .forEach() lub .peek()
     public static final Consumer<Object> PRINTER = o -> System.out.println(o.toString().replace("\n", ""));
+    public static final BiConsumer<Object, Object> PRINTER2 = (o, o2) -> System.out.println(o + " " + o2);
 
     // Wczytuje plik, zwraca listę linii
     public static List<String> read(String path) {

@@ -2,15 +2,15 @@ package pl.panszelescik.matura2020.base;
 
 public class Uzytkownik {
 
-    public final String panstwo;
-    public final String jezyk;
+    public final String nazwaPanstwa;
+    public final String nazwaJezyka;
     public final double ilosc;
     public final boolean urzedowy;
 
     public Uzytkownik(String line) {
         String[] array = line.split("\t");
-        this.panstwo = array[0];
-        this.jezyk = array[1];
+        this.nazwaPanstwa = array[0];
+        this.nazwaJezyka = array[1];
         this.ilosc = Double.parseDouble(array[2].replace(",", "."));
         this.urzedowy = array[3].equalsIgnoreCase("tak");
     }
@@ -18,8 +18,8 @@ public class Uzytkownik {
     @Override
     public String toString() {
         return "{" +
-                "panstwo='" + panstwo + '\'' +
-                ", jezyk='" + jezyk + '\'' +
+                "panstwo='" + nazwaPanstwa + '\'' +
+                ", jezyk='" + nazwaJezyka + '\'' +
                 ", ilosc=" + ilosc +
                 ", urzedowy=" + urzedowy +
                 '}';
