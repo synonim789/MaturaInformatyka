@@ -61,6 +61,13 @@ public class NumberUtils {
         return valid;
     }
 
+    public static String prettyNumber(int number) {
+        if (number < 10) {
+            return "0" + number;
+        }
+        return String.valueOf(number);
+    }
+
     // Przelicza sumę wszystkich wartości z listy
     public static int sumIntList(Collection<Integer> list) {
         return CollectionUtils.createIntStream(list).sum();

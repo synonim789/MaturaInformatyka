@@ -13,4 +13,8 @@ public class DateUtils {
     public static long getFullDays(LocalDate before, LocalDate after) {
         return ChronoUnit.DAYS.between(before, after) - 1;
     }
+
+    public static String format(LocalDate date, String pattern) {
+        return date.format(DateTimeFormatter.ofPattern(pattern));
+    }
 }
