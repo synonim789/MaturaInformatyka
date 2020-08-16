@@ -1,5 +1,7 @@
 package pl.panszelescik.matura2020.base;
 
+import pl.panszelescik.api.NumberUtils;
+
 public class Panstwo {
 
     public final String nazwa;
@@ -10,7 +12,7 @@ public class Panstwo {
         String[] array = line.split("\t");
         this.nazwa = array[0];
         this.kontynent = array[1];
-        this.populacja = Double.parseDouble(array[2].replace(",", "."));
+        this.populacja = NumberUtils.parseDouble(array[2]);
     }
 
     @Override

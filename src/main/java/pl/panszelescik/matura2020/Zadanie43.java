@@ -1,6 +1,6 @@
 package pl.panszelescik.matura2020;
 
-import pl.panszelescik.api.API;
+import pl.panszelescik.api.FileUtils;
 import pl.panszelescik.matura2020.base.Para;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public class Zadanie43 {
 
     public static void main(String[] args) {
-        List<Para> pary = API.mapFile("2020/Dane_PR2/pary.txt", Para::new);
+        List<Para> pary = FileUtils.mapFile("2020/Dane_PR2/pary.txt", Para::new);
         pary.stream()
                 .sorted((para1, para2) -> {
                     if (para1.number < para2.number) {
@@ -23,7 +23,7 @@ public class Zadanie43 {
                 .findFirst()
                 .ifPresent(para -> {
                     String string = para.number + " " + para.string;
-                    API.write("2020_zadanie43.txt", writer -> writer.write(string));
+                    FileUtils.write("2020_zadanie43.txt", writer -> writer.write(string));
                     System.out.println(string);
                 });
     }
