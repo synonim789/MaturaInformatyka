@@ -23,4 +23,16 @@ public class Statek {
         this.waga = NumberUtils.parseInt(array[4]);
         this.cena = NumberUtils.parseInt(array[5]);
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "date=" + date +
+                ", port='" + port + '\'' +
+                ", towar='" + towar + '\'' +
+                ", type=" + type +
+                ", waga=" + waga +
+                ", cena=" + cena +
+                '}';
+    }
 }

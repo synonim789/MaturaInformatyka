@@ -50,7 +50,7 @@ public class FileUtils {
     // Wyświetla na consoli i zapisuje do pliku
     public static void endStream(MyWriter writer, Stream<?> stream) {
         stream.peek(Printers.CONSUMER)
-                .forEach(writer::writeStream);
+                .forEach(writer::writeLine);
     }
 
     // Wyświetla na consoli i zapisuje do pliku
@@ -85,7 +85,7 @@ public class FileUtils {
             return this;
         }
 
-        public MyWriter writeStream(Object o) {
+        public MyWriter writeLine(Object o) {
             this.write(o);
             this.write("\n");
             return this;

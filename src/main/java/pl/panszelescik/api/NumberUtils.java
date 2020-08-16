@@ -40,6 +40,11 @@ public class NumberUtils {
         return true;
     }
 
+    // Odejmuje 2 inty, przydatne jako referencja
+    public static int substract(int a, int b) {
+        return a - b;
+    }
+
     // Zwraca sumy liczb pierwszych podanej liczby
     public static Set<List<Integer>> primeToEvenNumbers(int liczba) {
         int[] liczbyPierwsze = getPrimeNumbersLowerThan(liczba);
