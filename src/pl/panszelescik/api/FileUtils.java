@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class FileUtils {
@@ -54,7 +55,18 @@ public class FileUtils {
     }
 
     // Wyswietla na consoli i zapisuje do pliku
+    public static void endStream(MyWriter writer, IntStream stream) {
+        stream.peek(Printers.INT_CONSUMER)
+                .forEach(writer::writeLine);
+    }
+
+    // Wyswietla na consoli i zapisuje do pliku
     public static void writeStream(String dir, String fileName, Stream<?> stream) {
+        write(dir, fileName, writer -> endStream(writer, stream));
+    }
+
+    // Wyswietla na consoli i zapisuje do pliku
+    public static void writeStream(String dir, String fileName, IntStream stream) {
         write(dir, fileName, writer -> endStream(writer, stream));
     }
 
