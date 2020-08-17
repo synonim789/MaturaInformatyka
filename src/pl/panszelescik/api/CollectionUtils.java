@@ -4,15 +4,23 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.stream.*;
 
 public class CollectionUtils {
 
     // Tworzy IntStream z List<Integer>
     public static IntStream createIntStream(Collection<Integer> list) {
         return list.stream().mapToInt(Integer::intValue);
+    }
+
+    // Tworzy LongStream z List<Long>
+    public static LongStream createLongStream(Collection<Long> list) {
+        return list.stream().mapToLong(Long::longValue);
+    }
+
+    // Tworzy DoubleStream z List<Double>
+    public static DoubleStream createDoubleStream(Collection<Double> list) {
+        return list.stream().mapToDouble(Double::doubleValue);
     }
 
     // Zwraca pierwszy zgodny obiekt z listy
