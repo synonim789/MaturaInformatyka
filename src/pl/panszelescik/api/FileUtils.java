@@ -9,11 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
-public class FileUtils {
+public final class FileUtils {
 
     // Wczytuje plik, zwraca liste linii
     public static List<String> read(String path) {
@@ -61,12 +59,34 @@ public class FileUtils {
     }
 
     // Wyswietla na consoli i zapisuje do pliku
+    public static void endStream(MyWriter writer, LongStream stream) {
+        stream.peek(Printers.LONG_CONSUMER)
+                .forEach(writer::writeLine);
+    }
+
+    // Wyswietla na consoli i zapisuje do pliku
+    public static void endStream(MyWriter writer, DoubleStream stream) {
+        stream.peek(Printers.DOUBLE_CONSUMER)
+                .forEach(writer::writeLine);
+    }
+
+    // Wyswietla na consoli i zapisuje do pliku
     public static void writeStream(String dir, String fileName, Stream<?> stream) {
         write(dir, fileName, writer -> endStream(writer, stream));
     }
 
     // Wyswietla na consoli i zapisuje do pliku
     public static void writeStream(String dir, String fileName, IntStream stream) {
+        write(dir, fileName, writer -> endStream(writer, stream));
+    }
+
+    // Wyswietla na consoli i zapisuje do pliku
+    public static void writeStream(String dir, String fileName, LongStream stream) {
+        write(dir, fileName, writer -> endStream(writer, stream));
+    }
+
+    // Wyswietla na consoli i zapisuje do pliku
+    public static void writeStream(String dir, String fileName, DoubleStream stream) {
         write(dir, fileName, writer -> endStream(writer, stream));
     }
 

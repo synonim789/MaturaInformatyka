@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.*;
 
-public class CollectionUtils {
+public final class CollectionUtils {
 
     // Tworzy IntStream z List<Integer>
     public static IntStream createIntStream(Collection<Integer> list) {
@@ -24,8 +24,17 @@ public class CollectionUtils {
     }
 
     // Zwraca pierwszy zgodny obiekt z listy
-    public static <T> T getFromList(Collection<T> list, Predicate<? super T> predicate) {
+    public static <T> T getFirstFromList(Collection<T> list, Predicate<? super T> predicate) {
         return list.stream()
+                .filter(predicate)
+                .findFirst()
+                .get();
+    }
+
+    // Zwraca pierwszy zgodny Entry z mapy
+    public static <K, V> Map.Entry<K, V> getFirstFromMap(Map<K, V> map, Predicate<? super Map.Entry<K, V>> predicate) {
+        return map.entrySet()
+                .stream()
                 .filter(predicate)
                 .findFirst()
                 .get();
@@ -35,6 +44,12 @@ public class CollectionUtils {
     public static <C extends Collection<E>, E> C add(C collection, E value) {
         collection.add(value);
         return collection;
+    }
+
+    // Dodaje do mapy i ja zwraca
+    public static <M extends Map<K, V>, K, V> M put(M map, K key, V value) {
+        map.put(key, value);
+        return map;
     }
 
     // Collector zliczajacy ilosc T w Streamie i mapuje do Map<K, Integer>

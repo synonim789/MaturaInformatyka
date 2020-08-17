@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class StringUtils {
+public final class StringUtils {
 
     // Zlicza znaki w podanym słowie, zwraca w postaci Mapy
     public static Map<Character, Integer> wordToMap(String word) {

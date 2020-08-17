@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class NumberUtils {
+public final class NumberUtils {
 
     // Parsuje int
     public static int parseInt(String string) {
@@ -82,6 +82,14 @@ public class NumberUtils {
 
     // Oblicza silnie
     public static int silnia(int i) {
+        if (i <= 1) {
+            return 1;
+        }
+        return i * silnia(i - 1);
+    }
+
+    // Oblicza silnie
+    public static long silnia(long i) {
         if (i <= 1) {
             return 1;
         }

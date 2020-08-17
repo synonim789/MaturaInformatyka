@@ -28,10 +28,10 @@ public class Zadanie53 {
     }
 
     public static Jezyk getJezyk(List<Jezyk> jezyki, String name) {
-        return CollectionUtils.getFromList(jezyki, jezyk -> jezyk.nazwa.equals(name));
+        return CollectionUtils.getFirstFromList(jezyki, jezyk -> jezyk.nazwa.equals(name));
     }
 
     public static Panstwo getPanstwo(List<Panstwo> panstwa, String name) {
-        return CollectionUtils.getFromList(panstwa, panstwo -> panstwo.nazwa.equals(name));
+        return CollectionUtils.getFirstFromList(panstwa, panstwo -> panstwo.nazwa.equals(name));
     }
 }
