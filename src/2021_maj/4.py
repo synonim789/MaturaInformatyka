@@ -32,7 +32,7 @@ for instrukcja, litera in array:  # Taki for pozwala od razu pobierać dany elem
                 chars = list(string)  # Zamień string na tablicę znaków
                 chars[index] = nextLetter(char)  # Użyj funkcji do zmiany litery na następną
                 string = ''.join(chars)  # Złącz tablicę znaków na string
-                break
+                break  # Break, bo mamy zamienić tylko jedną literę od lewej, więc nie ma sensu patrzeć dalej
 print(len(string))  # Print długości stringa, rozwiązanie 4.1
 
 
