@@ -27,7 +27,7 @@ for instrukcja, litera in array:  # Taki for pozwala od razu pobierać dany elem
     elif instrukcja == 'USUN':
         string = string[:-1]  # Usuń ostatnią literę
     elif instrukcja == 'PRZESUN':
-        for index, char in enumerate(string):  # Iteracja po literach w stringu
+        for index, char in enumerate(string):  # Iteracja po literach w stringu, funkcja enumerate pozwala pobrać index w tablicy
             if char == litera:
                 chars = list(string)  # Zamień string na tablicę znaków
                 chars[index] = nextLetter(char)  # Użyj funkcji do zmiany litery na następną
