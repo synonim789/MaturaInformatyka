@@ -9,6 +9,7 @@ roznica = calkowita - rzeczywista  # -1.5
 iloczyn = calkowita * rzeczywista  # 59.5
 iloraz = calkowita / rzeczywista  # 0.8235294117647058
 potegowanie = rzeczywista ** calkowita  # 3205770.8828125
+reszta = rzeczywista % calkowita  # 1.5
 ```
 
 ### Iteracja po cyfrach
