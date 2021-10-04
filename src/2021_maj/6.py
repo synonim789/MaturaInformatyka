@@ -126,7 +126,22 @@ for dane_jednostki in jednostki:
     else:  # Jeśli nie ma klucza w słowniku dodaj tablicę z tą jednostką
         pozycje[coords] = [dane_jednostki]
 
-bitwy = dict(filter(lambda x: len(set(map(lambda y: y[1], x[1]))) > 1, filter(lambda x: len(x[1]) > 1, pozycje.items())))  # Skomplikowana linia więc po kolei:
+bitwy = dict(
+    filter(
+        lambda x: len(
+            set(
+                map(
+                    lambda y: y[1],
+                    x[1]
+                )
+            )
+        ) > 1,
+        filter(
+            lambda x: len(x[1]) > 1,
+            pozycje.items()
+        )
+    )
+)  # Skomplikowana linia więc po kolei:
 # pozycje.items() - zmienia słownik na tablicę tablic dwuelementowych
 # następnie filtr sprawdzający czy w miejscu jest więcej niż 1 jednostka
 # następnie w filtrze:
