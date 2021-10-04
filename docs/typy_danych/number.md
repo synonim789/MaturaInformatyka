@@ -27,3 +27,11 @@ for char in str(liczba):
     suma += int(char)
 print(suma)
 ```
+
+## Funkcje zewnętrzne
+
+- [chr](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/chr.md)
+- [float](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/float.md)
+- [int](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/int.md)
+- [ord](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/ord.md)
+- [str](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/str.md)
