@@ -34,7 +34,7 @@ gracze = readfile('gracze.txt', gracz)  # id_gracza, kraj, data_dolaczenia
 klasy = readfile('klasy.txt', klasa)  # nazwa, sila, strzal, magia, szybkosc
 jednostki = readfile('jednostki.txt', jednostka)  # id_jednostki, id_gracza, nazwa, lok_x, lok_y
 
-# Testowe wyprintowanie przygotowanego wczytanych plików
+# Testowe wyprintowanie przygotowanych wczytanych plików
 #print(gracze)
 #print(klasy)
 #print(jednostki)
@@ -94,7 +94,7 @@ def getszybkosc(name):  # Funkcja pobierająca wartość szybkości na podstawie
 
 
 zgodne = list(filter(lambda x: warunek(x[3], x[4], getszybkosc(x[2])), jednostki))  # Filtrowanie jednostek, które spełniają warunek podany w zadaniu
-dojda_do_bramy = {}
+dojda_do_bramy = {}  # Słownik który będziemy obliczać
 for nazwa, sila, strzal, magia, szybkosc in klasy:
     dojda_do_bramy[nazwa] = 0  # Dodajemy wszystkie klasy do słownika i ustawiamy 0 jednostek
 for id_jednostki, id_gracza, nazwa, lok_x, lok_y in zgodne:  # Iteracja po liście zgodnych jednostek i dodajemy odpowiednio 1
@@ -102,3 +102,38 @@ for id_jednostki, id_gracza, nazwa, lok_x, lok_y in zgodne:  # Iteracja po liśc
 for nazwa, ilosc in dojda_do_bramy.items():
     print(f'{nazwa} - {ilosc}')  # Print, rozwiązanie 6.4
 print('')
+
+# Zadanie 6.5
+
+
+def czypolak(wbitwie):  # Funkcja sprawdzająca czy w tablicy jednostek znajduje się jednostka Polaka
+    for id_jednostki, id_gracza_jednostki, nazwa, lok_x, lok_y in wbitwie:
+        for id_gracza, kraj, data_dolaczenia in gracze:
+            if id_gracza_jednostki == id_gracza:
+                if kraj == 'Polska':
+                    return True
+                else:
+                    break
+    return False
+
+
+pozycje = {}  # Słownik który będziemy obliczać
+for dane_jednostki in jednostki:
+    id_jednostki, id_gracza, nazwa, lok_x, lok_y = dane_jednostki
+    coords = f'{lok_x},{lok_y}'  # Klucz słownika to string x,y
+    if coords in pozycje:  # Jeśli jest klucz w słowniku dodaj do tablicy jednostkę
+        pozycje[coords].append(dane_jednostki)
+    else:  # Jeśli nie ma klucza w słowniku dodaj tablicę z tą jednostką
+        pozycje[coords] = [dane_jednostki]
+
+bitwy = dict(filter(lambda x: len(set(map(lambda y: y[1], x[1]))) > 1, filter(lambda x: len(x[1]) > 1, pozycje.items())))  # Skomplikowana linia więc po kolei:
+# pozycje.items() - zmienia słownik na tablicę tablic dwuelementowych
+# następnie filtr sprawdzający czy w miejscu jest więcej niż 1 jednostka
+# następnie w filtrze:
+# lista jednostek jest zamieniana na zbiór id_gracza
+# pobierana jest długość zbioru
+# filtr sprawdza czy ten zbiór jest większy niż 1
+print(len(bitwy))  # Ilość bitw, rozwiązanie 6.5a
+
+polacy = dict(filter(lambda x: czypolak(x[1]), bitwy.items()))  # Filtrowanie bitw w których jest chociaż 1 Polak
+print(len(polacy))  # Ilość bitw z Polakami, rozwiązanie 6.5b
