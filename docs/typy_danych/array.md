@@ -16,4 +16,5 @@ print(tablica)  # [5, 8, 9]
 - [filter](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/filter.md)
 - [len](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/len.md)
 - [map](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/map.md)
+- [range](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/range.md)
 - [sorted](https://github.com/PanSzelescik/MaturaInformatyka/blob/python/docs/funkcje/sorted.md)

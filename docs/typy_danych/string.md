@@ -5,11 +5,16 @@ string = 'Hello world'
 string2 = "Hello world"
 string3 = "Tutaj możesz wpisać 'pojedynczy' cudzysłów"
 string4 = 'Tutaj też możesz wpisać \'pojedynczy\' cudzysłów'
+string5 = '''To
+jest
+tekst
+wieloliniowy
+'''
 
 powitanie = 'Hello'
 swiat = 'world'
-string5 = f'{powitanie} {swiat}'  # Hello world
-string6 = powitanie + ' ' + swiat  # Hello world
+string6 = f'{powitanie} {swiat}'  # Hello world
+string7 = powitanie + ' ' + swiat  # Hello world
 ```
 
 ### Pobranie n litery od lewej
