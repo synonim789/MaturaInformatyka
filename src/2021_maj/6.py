@@ -6,8 +6,7 @@ date_format = '%Y-%m-%d'  # Format daty
 def readfile(name, mapper):  # Funkcja wczytująca podany plik i tworząca tablicę tablic
     file = open(f'../../resources/2021_maj/DANE_2105/{name}', 'r', encoding='utf8')  # Wczytanie pliku do odczytu w utf8
     file.readline()  # Pomiń pierwsza linie z nazwami kolumn
-    array = list(map(lambda x: mapper(x.strip().split('\t')),
-                     file))  # Dzielenie pliku na tablicę tablic, strip usuwa zbędne \n oraz spacje, split dzieli linię, następnie utworzony string wrzuca do podanej funkcji mapper
+    array = list(map(lambda x: mapper(x.strip().split('\t')), file))  # Dzielenie pliku na tablicę tablic, strip usuwa zbędne \n oraz spacje, split dzieli linię, następnie utworzony string wrzuca do podanej funkcji mapper
     file.close()  # Zamknięcie pliku
     return array
 
@@ -36,9 +35,9 @@ klasy = readfile('klasy.txt', klasa)  # nazwa, sila, strzal, magia, szybkosc
 jednostki = readfile('jednostki.txt', jednostka)  # id_jednostki, id_gracza, nazwa, lok_x, lok_y
 
 # Testowe wyprintowanie przygotowanych wczytanych plików
-# print(gracze)
-# print(klasy)
-# print(jednostki)
+#print(gracze)
+#print(klasy)
+#print(jednostki)
 
 # Zadanie 6.1
 gracze_2018 = list(filter(lambda x: x[2].year == 2018, gracze))  # Filtrowanie graczy z 2018 roku
@@ -48,12 +47,10 @@ for id_gracza, kraj, data_dolaczenia in gracze_2018:
         ilosc_graczy[kraj] = ilosc_graczy[kraj] + 1
     else:  # Jeśli kraju nie ma w słowniku, dodaj go i ustaw 1
         ilosc_graczy[kraj] = 1
-posortowane = sorted(ilosc_graczy.items(), key=lambda x: x[1],
-                     reverse=True)  # Funkcja sortująca, biorąca pod uwagę liczbę graczy
+posortowane = sorted(ilosc_graczy.items(), key=lambda x: x[1], reverse=True)  # Funkcja sortująca, biorąca pod uwagę liczbę graczy
 for i in range(0, 5):  # Pokaż 5 pierwszych elementów - 5 krajów, rozwiązanie 6.1
     print(f'{posortowane[i][0]} - {posortowane[i][1]}')
 print('')
-
 
 # Zadanie 6.2
 
@@ -77,14 +74,10 @@ for nazwa, ilosc in strzaly.items():  # Pokaż sumę strzałów, rozwiązanie 6.
 print('')
 
 # Zadanie 6.3
-gracze_artylerzysci = set(map(lambda x: x[1], filter(lambda x: x[2] == 'artylerzysta',
-                                                     jednostki)))  # Filtrowanie jednostek które są artylerzystami, następnie stwórz zbiór graczy, którzy mają chociaż 1 artylerzystę
-gracze_nie_artylerzysci = list(filter(lambda id_gracza: id_gracza not in gracze_artylerzysci, map(lambda x: x[0],
-                                                                                                  gracze)))  # Iteracja po graczach, w celu sprawdzenia czy są w zbiorze gracze_artylerzysci, jeśli nie są, to znaczy że nie mają artylerzysty
-print(', '.join(str(x) for x in
-                gracze_nie_artylerzysci))  # Zmień liczby na stringi, aby móc użyć funkcji join w celu wyprintowania, rozwiązanie 6.3
+gracze_artylerzysci = set(map(lambda x: x[1], filter(lambda x: x[2] == 'artylerzysta', jednostki)))  # Filtrowanie jednostek które są artylerzystami, następnie stwórz zbiór graczy, którzy mają chociaż 1 artylerzystę
+gracze_nie_artylerzysci = list(filter(lambda id_gracza: id_gracza not in gracze_artylerzysci, map(lambda x: x[0], gracze)))  # Iteracja po graczach, w celu sprawdzenia czy są w zbiorze gracze_artylerzysci, jeśli nie są, to znaczy że nie mają artylerzysty
+print(', '.join(str(x) for x in gracze_nie_artylerzysci))  # Zmień liczby na stringi, aby móc użyć funkcji join w celu wyprintowania, rozwiązanie 6.3
 print('')
-
 
 # Zadanie 6.4
 
@@ -100,8 +93,7 @@ def getszybkosc(name):  # Funkcja pobierająca wartość szybkości na podstawie
     return 0
 
 
-zgodne = list(filter(lambda x: warunek(x[3], x[4], getszybkosc(x[2])),
-                     jednostki))  # Filtrowanie jednostek, które spełniają warunek podany w zadaniu
+zgodne = list(filter(lambda x: warunek(x[3], x[4], getszybkosc(x[2])), jednostki))  # Filtrowanie jednostek, które spełniają warunek podany w zadaniu
 dojda_do_bramy = {}  # Słownik który będziemy obliczać
 for nazwa, sila, strzal, magia, szybkosc in klasy:
     dojda_do_bramy[nazwa] = 0  # Dodajemy wszystkie klasy do słownika i ustawiamy 0 jednostek
@@ -110,7 +102,6 @@ for id_jednostki, id_gracza, nazwa, lok_x, lok_y in zgodne:  # Iteracja po liśc
 for nazwa, ilosc in dojda_do_bramy.items():
     print(f'{nazwa} - {ilosc}')  # Print, rozwiązanie 6.4
 print('')
-
 
 # Zadanie 6.5
 
@@ -135,22 +126,7 @@ for dane_jednostki in jednostki:
     else:  # Jeśli nie ma klucza w słowniku dodaj tablicę z tą jednostką
         pozycje[coords] = [dane_jednostki]
 
-bitwy = dict(
-    filter(
-        lambda x: len(
-            set(
-                map(
-                    lambda y: y[1],
-                    x[1]
-                )
-            )
-        ) > 1,
-        filter(
-            lambda x: len(x[1]) > 1,
-            pozycje.items()
-        )
-    )
-)  # Skomplikowana linia więc po kolei:
+bitwy = dict(filter(lambda x: len(set(map(lambda y: y[1], x[1]))) > 1, filter(lambda x: len(x[1]) > 1, pozycje.items())))  # Skomplikowana linia więc po kolei:
 # pozycje.items() - zmienia słownik na tablicę tablic dwuelementowych
 # następnie filtr sprawdzający czy w miejscu jest więcej niż 1 jednostka
 # następnie w filtrze:
