@@ -1,0 +1,51 @@
+6.1
+Polska - 11
+Stany Zjednoczone - 8
+Francja - 7
+Niemcy - 6
+Rosja - 6
+
+6.2
+ciemny elf - 555
+wysoki elf-gwardzista - 870
+elfi czarodziej - 435
+lesny elf - 1815
+
+6.3
+22, 24, 29, 35, 36, 37, 38, 47, 54, 61, 64, 72, 110, 114, 115, 122, 123, 138, 141, 167
+
+6.4
+robotnik - 5
+goniec - 2
+drwal - 3
+zwiadowca - 4
+architekt - 1
+artylerzysta - 4
+szpieg - 0
+piechur - 7
+topornik - 5
+pikinier - 5
+lucznik - 1
+kusznik - 1
+mag powietrza - 3
+mag wody - 2
+mag ziemi - 0
+mag ognia - 0
+kaplan - 2
+ciemny elf - 1
+lesny elf - 0
+elfi czarodziej - 1
+wysoki elf-gwardzista - 1
+lekki jezdziec - 19
+kawalerzysta - 7
+paladyn - 1
+konny lucznik - 4
+katapulta - 0
+balista - 2
+smok - 0
+ifryt - 1
+troll - 0
+
+6.5
+1061
+245 z udziałem Polaków

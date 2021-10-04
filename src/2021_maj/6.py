@@ -136,4 +136,4 @@ bitwy = dict(filter(lambda x: len(set(map(lambda y: y[1], x[1]))) > 1, filter(la
 print(len(bitwy))  # Ilość bitw, rozwiązanie 6.5a
 
 polacy = dict(filter(lambda x: czypolak(x[1]), bitwy.items()))  # Filtrowanie bitw w których jest chociaż 1 Polak
-print(len(polacy))  # Ilość bitw z Polakami, rozwiązanie 6.5b
+print(f'{len(polacy)} z udziałem Polaków')  # Ilość bitw z Polakami, rozwiązanie 6.5b
